@@ -2,15 +2,18 @@ package com.alldi.a20190414_goodac_main_copy;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText searchEdt;
     Button searchBtn;
+    TextView welcomeTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchEdt = findViewById(R.id.searchEdt);
         searchBtn = findViewById(R.id.searchBtn);
+        welcomeTxt = findViewById(R.id.welcomeTxt);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        String loginUserId = getIntent().getStringExtra("사용자아이디");
+        Log.d("로그인사용자", loginUserId);
+        String welcomeMessage = String.format("%s님 환영합니다!", loginUserId);
+        welcomeTxt.setText(welcomeMessage);
 
     }
 }

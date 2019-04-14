@@ -31,14 +31,21 @@ public class LoginActivity extends AppCompatActivity {
                 String userId = userIdEdt.getText().toString();
                 String userPw = userPwEdt.getText().toString();
                 
-                if (userId.equals("tjeit") && userPw.equals("qwer1234")){
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+//                if (userId.equals("tjeit") && userPw.equals("qwer1234")){
+//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//
+//                }else {
+//                    Toast.makeText(LoginActivity.this, "로그인에 실패했습니다.\nID / PW를 확인해주세요.", Toast.LENGTH_SHORT).show();
+//                }
 
-                }else {
-                    Toast.makeText(LoginActivity.this, "로그인에 실패했습니다.\nID / PW를 확인해주세요.", Toast.LENGTH_SHORT).show();
-                }
+//                입력한 아이디를 들고 메인액티비티로 이동.
+
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                메인액티비티로 갈때 "사용자아이디"라는 꼬리표로 userId에 들어있는 값을 들고감.
+                intent.putExtra("사용자아이디", userId);
+                startActivity(intent);
                 
             }
         });
